@@ -37,13 +37,13 @@
     return square;
 }
 
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    UITableViewCell *cell = [super tableView:tableView cellForRowAtIndexPath:indexPath];
-//    if (indexPath.section == 0 && indexPath.row == 0) {
-//        cell.contentView.backgroundColor = (UIColor *)self.object;
-//    }
-//
-//    return cell;
-//}
+- (BOOL)customSectionCanDrillIntoRowWithCookie:(id)rowCookie
+{
+    if ([@0 isEqual:rowCookie]) {
+        return NO;
+    }
+    
+    return [super customSectionCanDrillIntoRowWithCookie:rowCookie];
+}
 
 @end
