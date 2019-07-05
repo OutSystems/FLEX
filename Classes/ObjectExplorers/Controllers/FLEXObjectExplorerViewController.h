@@ -49,4 +49,7 @@ typedef NS_ENUM(NSUInteger, FLEXObjectExplorerSection) {
 /// Subclasses can reorder/change which sections can display directly by overriding this method.
 - (NSArray *)possibleExplorerSections;
 
+/// Subclasses can override to provide a more useful description
+- (NSString *)displayedObjectDescription;
+
 @end
