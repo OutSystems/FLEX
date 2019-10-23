@@ -11,8 +11,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 typedef NS_ENUM(NSUInteger, FLEXGlobalsRow) {
-    FLEXGlobalsRowProcessInfo,
     FLEXGlobalsRowNetworkHistory,
+    FLEXGlobalsRowCount, // works as a cut-off index, only entries above it will be considered
+    FLEXGlobalsRowProcessInfo,
     FLEXGlobalsRowSystemLog,
     FLEXGlobalsRowLiveObjects,
     FLEXGlobalsRowAddressInspector,
@@ -41,8 +42,7 @@ typedef NS_ENUM(NSUInteger, FLEXGlobalsRow) {
     FLEXGlobalsRowCalendar,
     FLEXGlobalsRowMainRunLoop,
     FLEXGlobalsRowMainThread,
-    FLEXGlobalsRowOperationQueue,
-    FLEXGlobalsRowCount
+    FLEXGlobalsRowOperationQueue
 };
 
 typedef NSString * _Nonnull (^FLEXGlobalsEntryNameFuture)(void);
