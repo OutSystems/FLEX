@@ -25,6 +25,7 @@ static __weak UIWindow *s_applicationWindow = nil;
 
 typedef NS_ENUM(NSUInteger, FLEXGlobalsRow) {
     FLEXGlobalsRowNetworkHistory,
+    FLEXGlobalsRowCount, // works as a cut-off index, only entries above it will be considered
     FLEXGlobalsRowSystemLog,
     FLEXGlobalsRowLiveObjects,
     FLEXGlobalsRowAddressInspector,
@@ -39,8 +40,7 @@ typedef NS_ENUM(NSUInteger, FLEXGlobalsRow) {
     FLEXGlobalsRowApplication,
     FLEXGlobalsRowKeyWindow,
     FLEXGlobalsRowMainScreen,
-    FLEXGlobalsRowCurrentDevice,
-    FLEXGlobalsRowCount
+    FLEXGlobalsRowCurrentDevice
 };
 
 @interface FLEXGlobalsTableViewController ()
