@@ -198,7 +198,7 @@
     
     if (self) {
         _actionsForKeyInputs = [NSMutableDictionary dictionary];
-        _enabled = YES;
+        _enabled = NO;
     }
     
     return self;
