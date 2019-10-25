@@ -102,7 +102,7 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
 
     CGRect safeArea = [self viewSafeArea];
     CGSize toolbarSize = [self.explorerToolbar sizeThatFits:CGSizeMake(
-        CGRectGetWidth(self.view.bounds), CGRectGetHeight(safeArea)
+        160, CGRectGetHeight(safeArea)
     )];
     [self updateToolbarPositionWithUnconstrainedFrame:CGRectMake(
         CGRectGetMinX(safeArea), toolbarOriginY, toolbarSize.width, toolbarSize.height
@@ -833,7 +833,7 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
 
         CGRect safeArea = [self viewSafeArea];
         CGSize toolbarSize = [self.explorerToolbar sizeThatFits:CGSizeMake(
-            CGRectGetWidth(self.view.bounds), CGRectGetHeight(safeArea)
+            160, CGRectGetHeight(safeArea)
         )];
         [self updateToolbarPositionWithUnconstrainedFrame:CGRectMake(
             CGRectGetMinX(self.explorerToolbar.frame),
