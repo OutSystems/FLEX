@@ -102,7 +102,7 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
     CGFloat toolbarOriginY = toolbarOriginYDefault ? [toolbarOriginYDefault doubleValue] : 100;
 
     CGRect safeArea = [self viewSafeArea];
-    CGSize toolbarSize = [self.explorerToolbar sizeThatFits:CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetHeight(safeArea))];
+    CGSize toolbarSize = [self.explorerToolbar sizeThatFits:CGSizeMake(70, CGRectGetHeight(safeArea))];
     [self updateToolbarPositionWithUnconstrainedFrame:CGRectMake(CGRectGetMinX(safeArea), toolbarOriginY, toolbarSize.width, toolbarSize.height)];
     self.explorerToolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleTopMargin;
     [self.view addSubview:self.explorerToolbar];
@@ -709,7 +709,7 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
   }
 
   CGRect safeArea = [self viewSafeArea];
-  CGSize toolbarSize = [self.explorerToolbar sizeThatFits:CGSizeMake(CGRectGetWidth(self.view.bounds), CGRectGetHeight(safeArea))];
+  CGSize toolbarSize = [self.explorerToolbar sizeThatFits:CGSizeMake(70, CGRectGetHeight(safeArea))];
   [self updateToolbarPositionWithUnconstrainedFrame:CGRectMake(CGRectGetMinX(self.explorerToolbar.frame), CGRectGetMinY(self.explorerToolbar.frame), toolbarSize.width, toolbarSize.height)];
 }
 #endif
