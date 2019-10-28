@@ -82,7 +82,7 @@
         self.selectedViewDescriptionLabel.font = [[self class] descriptionLabelFont];
         [self.selectedViewDescriptionSafeAreaContainer addSubview:self.selectedViewDescriptionLabel];
         
-        self.toolbarItems = @[_globalsItem, _closeItem];
+        self.toolbarItems = @[_globalsItem];
     }
         
     return self;
