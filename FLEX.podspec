@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = "FLEX"
-  spec.version          = "3.0.0"
+  spec.version          = "3.0.0-OS"
   spec.summary          = "A set of in-app debugging and exploration tools for iOS"
   spec.description      = <<-DESC
                         - Inspect and modify views in the hierarchy.
@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
                         - Dynamically view and modify `NSUserDefaults` values.
                         DESC
 
-  spec.homepage         = "https://github.com/Flipboard/FLEX"
+  spec.homepage         = "https://github.com/OutSystems/FLEX"
   spec.screenshots      = [ "http://engineering.flipboard.com/assets/flex/basic-view-exploration.gif",
                             "http://engineering.flipboard.com/assets/flex/advanced-view-editing.gif",
                             "http://engineering.flipboard.com/assets/flex/heap-browser.gif",
@@ -30,7 +30,7 @@ Pod::Spec.new do |spec|
   spec.author           = { "Tanner Bennett" => "tannerbennett@me.com" }
   spec.social_media_url = "https://twitter.com/NSExceptional"
   spec.platform         = :ios, "8.0"
-  spec.source           = { :git => "https://github.com/Flipboard/FLEX.git", :tag => "#{spec.version}" }
+  spec.source           = { :git => "https://github.com/OutSystems/FLEX.git", :tag => "#{spec.version}" }
   spec.source_files     = "Classes/**/*.{h,m,mm}"
   spec.frameworks       = [ "Foundation", "UIKit", "CoreGraphics" ]
   spec.libraries        = [ "z", "sqlite3" ]
