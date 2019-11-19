@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0-OS1]
 ### Additions
 - Toolbar can now be closed again [RNMT-3515](https://outsystemsrd.atlassian.net/browse/RNMT-3515)
 - Add dark mode for iOS [RNMT-3526](https://outsystemsrd.atlassian.net/browse/RNMT-3526)
@@ -19,5 +20,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove buttons for features we do not support [RNMT-3280](https://outsystemsrd.atlassian.net/browse/RNMT-3280)
 - Disable simulator keyboard shortcuts [RNMT-3280](https://outsystemsrd.atlassian.net/browse/RNMT-3280)
 
-[Unreleased]: https://github.com/OutSystems/FLEX/compare/3.0.0-OS...outsystems
+[Unreleased]: https://github.com/OutSystems/FLEX/compare/3.0.0-OS1...outsystems
+[3.0.0-OS1]: https://github.com/OutSystems/FLEX/compare/3.0.0-OS...3.0.0-OS1
 [3.0.0-OS]: https://github.com/OutSystems/FLEX/compare/3.0.0...3.0.0-OS
