@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Additions
+- Toolbar can now be closed again [RNMT-3515](https://outsystemsrd.atlassian.net/browse/RNMT-3515)
 - Add dark mode for iOS [RNMT-3526](https://outsystemsrd.atlassian.net/browse/RNMT-3526)
 
 ## [3.0.0-OS]
