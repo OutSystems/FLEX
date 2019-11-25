@@ -52,7 +52,7 @@
         [self addSubview:self.dragHandle];
         
         // Buttons
-        self.globalsItem   = [FLEXExplorerToolbarItem itemWithTitle:@"menu" image:FLEXResources.globalsIcon];
+        self.globalsItem   = [FLEXExplorerToolbarItem itemWithTitle:@"network" image:FLEXResources.globalsIcon];
         self.hierarchyItem = [FLEXExplorerToolbarItem itemWithTitle:@"views" image:FLEXResources.hierarchyIcon];
         self.selectItem    = [FLEXExplorerToolbarItem itemWithTitle:@"select" image:FLEXResources.selectIcon];
         self.recentItem    = [FLEXExplorerToolbarItem itemWithTitle:@"recent" image:FLEXResources.recentIcon];
