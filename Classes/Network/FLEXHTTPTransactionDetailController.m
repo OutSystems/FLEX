@@ -299,7 +299,7 @@ typedef UIViewController *(^FLEXNetworkDetailRowSelectionFuture)(void);
             // We can't show the body, alert user
             return [FLEXAlert makeAlert:^(FLEXAlert *make) {
                 make.title(@"Can't View HTTP Body Data");
-                make.message(@"FLEX does not have a viewer for request body data with MIME type: ");
+                make.message(@"Inspector does not have a viewer for request body data with MIME type: ");
                 make.message(contentType);
                 make.button(@"Dismiss").cancelStyle();
             }];

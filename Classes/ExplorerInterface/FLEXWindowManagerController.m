@@ -227,10 +227,10 @@
                     
                     if (isWindowScene) {
                         if (isFLEXScene) {
-                            make.message(@"Already the FLEX window scene");
+                            make.message(@"Already the Inspector window scene");
                         }
                         
-                        make.button(@"Set as FLEX Window Scene")
+                        make.button(@"Set as Inspector Window Scene")
                         .handler(^(NSArray<NSString *> *strings) {
                             flex.windowScene = (id)scene;
                             [self showRevertOrDismissAlert:^{
@@ -251,15 +251,15 @@
     __block BOOL wasVisible;
     
     subtitle = [subtitle stringByAppendingString:
-        @"\n\n1) Adjust the FLEX window level relative to this window,\n"
-        "2) adjust this window's level relative to the FLEX window,\n"
+        @"\n\n1) Adjust the Inspector window level relative to this window,\n"
+        "2) adjust this window's level relative to the Inspector window,\n"
         "3) set this window's level to a specific value, or\n"
         "4) make this window the key window if it isn't already."
     ];
     
     [FLEXAlert makeAlert:^(FLEXAlert *make) {
         make.title(NSStringFromClass(window.class)).message(subtitle);
-        make.button(@"Adjust FLEX Window Level").handler(^(NSArray<NSString *> *strings) {
+        make.button(@"Adjust Inspector Window Level").handler(^(NSArray<NSString *> *strings) {
             targetWindow = flex; oldLevel = flex.windowLevel;
             flex.windowLevel = window.windowLevel + strings.firstObject.integerValue;
             
