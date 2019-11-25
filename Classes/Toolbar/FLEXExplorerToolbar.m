@@ -52,7 +52,7 @@
         [self.dragHandle addSubview:self.dragHandleImageView];
         
         UIImage *globalsIcon = [FLEXResources globeIcon];
-        self.globalsItem = [FLEXToolbarItem toolbarItemWithTitle:@"menu" image:globalsIcon];
+        self.globalsItem = [FLEXToolbarItem toolbarItemWithTitle:@"network" image:globalsIcon];
         
         UIImage *listIcon = [FLEXResources listIcon];
         self.hierarchyItem = [FLEXToolbarItem toolbarItemWithTitle:@"views" image:listIcon];
