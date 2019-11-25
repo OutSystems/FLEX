@@ -178,12 +178,12 @@
 {
     [self registerSimulatorShortcutWithKey:@"f" modifiers:0 action:^{
         [self toggleExplorer];
-    } description:@"Toggle FLEX toolbar"];
+    } description:@"Toggle Inspector toolbar"];
     
     [self registerSimulatorShortcutWithKey:@"g" modifiers:0 action:^{
         [self showExplorerIfNeeded];
         [self.explorerViewController toggleMenuTool];
-    } description:@"Toggle FLEX globals menu"];
+    } description:@"Toggle Inspector globals menu"];
     
     [self registerSimulatorShortcutWithKey:@"v" modifiers:0 action:^{
         [self showExplorerIfNeeded];

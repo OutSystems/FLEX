@@ -279,7 +279,7 @@ typedef NS_ENUM(NSUInteger, FLEXGlobalsRow) {
 {
     self = [super initWithStyle:style];
     if (self) {
-        self.title = @"💪  FLEX";
+        self.title = @"Inspector";
         _entries = [[[self class] defaultGlobalEntries] arrayByAddingObjectsFromArray:[FLEXManager sharedManager].userGlobalEntries];
     }
     return self;

@@ -263,7 +263,7 @@ typedef UIViewController *(^FLEXNetworkDetailRowSelectionFuture)(void);
             if (detailViewController) {
                 detailViewController.title = @"Request Body";
             } else {
-                NSString *alertMessage = [NSString stringWithFormat:@"FLEX does not have a viewer for request body data with MIME type: %@", [transaction.request valueForHTTPHeaderField:@"Content-Type"]];
+                NSString *alertMessage = [NSString stringWithFormat:@"Inspector does not have a viewer for request body data with MIME type: %@", [transaction.request valueForHTTPHeaderField:@"Content-Type"]];
                 [[[UIAlertView alloc] initWithTitle:@"Can't View Body Data" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
             }
             return detailViewController;
@@ -299,7 +299,7 @@ typedef UIViewController *(^FLEXNetworkDetailRowSelectionFuture)(void);
             if (strongResponseData) {
                 responseBodyDetailViewController = [self detailViewControllerForMIMEType:transaction.response.MIMEType data:strongResponseData];
                 if (!responseBodyDetailViewController) {
-                    NSString *alertMessage = [NSString stringWithFormat:@"FLEX does not have a viewer for responses with MIME type: %@", transaction.response.MIMEType];
+                    NSString *alertMessage = [NSString stringWithFormat:@"Inspector does not have a viewer for responses with MIME type: %@", transaction.response.MIMEType];
                     [[[UIAlertView alloc] initWithTitle:@"Can't View Response" message:alertMessage delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
                 }
                 responseBodyDetailViewController.title = @"Response";
