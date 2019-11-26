@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+
+## [3.0.0-OS3]
 ### Fixes
 - Remove string references to FLEX [RNMT-3597](https://outsystemsrd.atlassian.net/browse/RNMT-3597)
 - Toolbar button now navigates directly to network screen [RNMT-3598](https://outsystemsrd.atlassian.net/browse/RNMT-3598)
@@ -27,7 +29,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Remove buttons for features we do not support [RNMT-3280](https://outsystemsrd.atlassian.net/browse/RNMT-3280)
 - Disable simulator keyboard shortcuts [RNMT-3280](https://outsystemsrd.atlassian.net/browse/RNMT-3280)
 
-[Unreleased]: https://github.com/OutSystems/FLEX/compare/3.0.0-OS2...outsystems
+[Unreleased]: https://github.com/OutSystems/FLEX/compare/3.0.0-OS3...outsystems
+[3.0.0-OS3]: https://github.com/OutSystems/FLEX/compare/3.0.0-OS2...3.0.0-OS3
 [3.0.0-OS2]: https://github.com/OutSystems/FLEX/compare/3.0.0-OS1...3.0.0-OS2
 [3.0.0-OS1]: https://github.com/OutSystems/FLEX/compare/3.0.0-OS...3.0.0-OS1
 [3.0.0-OS]: https://github.com/OutSystems/FLEX/compare/3.0.0...3.0.0-OS
