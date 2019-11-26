@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 ### Fixes
 - Remove string references to FLEX [RNMT-3597](https://outsystemsrd.atlassian.net/browse/RNMT-3597)
+- Toolbar button now navigates directly to network screen [RNMT-3598](https://outsystemsrd.atlassian.net/browse/RNMT-3598)
 
 ## [3.0.0-OS2]
 ### Fixes

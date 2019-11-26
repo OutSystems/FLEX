@@ -885,10 +885,8 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
 - (void)toggleMenuTool
 {
     [self toggleToolWithViewControllerProvider:^UIViewController *{
-        FLEXGlobalsTableViewController *globalsViewController = [[FLEXGlobalsTableViewController alloc] init];
-        globalsViewController.delegate = self;
-        [FLEXGlobalsTableViewController setApplicationWindow:[[UIApplication sharedApplication] keyWindow]];
-        return [[UINavigationController alloc] initWithRootViewController:globalsViewController];
+        FLEXNetworkHistoryTableViewController *viewController = [[FLEXNetworkHistoryTableViewController alloc] init];
+        return [[UINavigationController alloc] initWithRootViewController:viewController];
     } completion:nil];
 }
 
