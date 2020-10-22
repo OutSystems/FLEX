@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
+### Additions
+- Add support for iOS 14 [RNMT-4439](https://outsystemsrd.atlassian.net/browse/RNMT-4439)
 
 ## [3.0.0-OS3]
 ### Fixes
