@@ -26,7 +26,7 @@ let package = Package(
             exclude: [
                 "Info.plist",
                 "Utility/APPLE_LICENSE",
-                "Network/OSCache/LICENSE.md",
+                "Network/NLCache/LICENSE.md",
                 "Network/PonyDebugger/LICENSE",
                 "GlobalStateExplorers/DatabaseBrowser/LICENSE",
                 "GlobalStateExplorers/Keychain/SSKeychain_LICENSE",
@@ -72,7 +72,7 @@ extension Array where Element == CSetting {
             .headerSearchPath("ObjectExplorers/Sections/Shortcuts"),
             .headerSearchPath("Network"),
             .headerSearchPath("Network/PonyDebugger"),
-            .headerSearchPath("Network/OSCache"),
+            .headerSearchPath("Network/NLCache"),
             .headerSearchPath("Toolbar"),
             .headerSearchPath("Manager"),
             .headerSearchPath("Manager/Private"),
