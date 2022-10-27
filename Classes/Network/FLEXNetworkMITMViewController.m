@@ -91,6 +91,7 @@ typedef NS_ENUM(NSInteger, FLEXNetworkObserverMode) {
             target:self
             action:@selector(settingsButtonTapped:)
         ],
+        UIBarButtonItem.flex_flexibleSpace,
         [[UIBarButtonItem
           flex_systemItem:UIBarButtonSystemItemTrash
           target:self
