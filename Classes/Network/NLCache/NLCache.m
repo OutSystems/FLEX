@@ -1,5 +1,5 @@
 //
-//  OSCache.m
+//  NLCache.m - renamed from OSCache.m due to a naming conflict
 //
 //  Version 1.2.1
 //
@@ -30,7 +30,7 @@
 //  3. This notice may not be removed or altered from any source distribution.
 //
 
-#import "OSCache.h"
+#import "NLCache.h"
 #import <TargetConditionals.h>
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
@@ -48,7 +48,7 @@
 #pragma GCC diagnostic ignored "-Wgnu"
 
 
-@interface OSCacheEntry : NSObject
+@interface NLCacheEntry : NSObject
 
 @property (nonatomic, strong) NSObject *object;
 @property (nonatomic, assign) NSUInteger cost;
@@ -57,14 +57,14 @@
 @end
 
 
-@implementation OSCacheEntry
+@implementation NLCacheEntry
 
 @end
 
 
-@interface OSCache_Private : NSObject
+@interface NLCache_Private : NSObject
 
-@property (nonatomic, unsafe_unretained) id<OSCacheDelegate> delegate;
+@property (nonatomic, unsafe_unretained) id<NLCacheDelegate> delegate;
 @property (nonatomic, assign) NSUInteger countLimit;
 @property (nonatomic, assign) NSUInteger totalCostLimit;
 @property (nonatomic, copy) NSString *name;
@@ -76,7 +76,7 @@
 @end
 
 
-@implementation OSCache_Private
+@implementation NLCache_Private
 {
     BOOL _delegateRespondsToWillEvictObject;
     BOOL _delegateRespondsToShouldEvictObject;
@@ -111,7 +111,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)setDelegate:(id<OSCacheDelegate>)delegate
+- (void)setDelegate:(id<NLCacheDelegate>)delegate
 {
     _delegate = delegate;
     _delegateRespondsToShouldEvictObject = [delegate respondsToSelector:@selector(cache:shouldEvictObject:)];
@@ -149,13 +149,13 @@
     while (totalCount > maxCount || _totalCost > maxCost)
     {
         NSInteger lowestSequenceNumber = INT_MAX;
-        OSCacheEntry *lowestEntry = nil;
+        NLCacheEntry *lowestEntry = nil;
         id lowestKey = nil;
 
         //remove oldest items until within limit
         for (id key in keys)
         {
-            OSCacheEntry *entry = _cache[key];
+            NLCacheEntry *entry = _cache[key];
             if (entry.sequenceNumber < lowestSequenceNumber)
             {
                 lowestSequenceNumber = entry.sequenceNumber;
@@ -168,12 +168,12 @@
         {
             [keys removeObject:lowestKey];
             if (!_delegateRespondsToShouldEvictObject ||
-                [_delegate cache:(OSCache *)self shouldEvictObject:lowestEntry.object])
+                [_delegate cache:(NLCache *)self shouldEvictObject:lowestEntry.object])
             {
                 if (_delegateRespondsToWillEvictObject)
                 {
                     _currentlyCleaning = YES;
-                    [self.delegate cache:(OSCache *)self willEvictObject:lowestEntry.object];
+                    [self.delegate cache:(NLCache *)self willEvictObject:lowestEntry.object];
                     _currentlyCleaning = NO;
                 }
                 [_cache removeObjectForKey:lowestKey];
@@ -200,8 +200,8 @@
         {
             //sort, oldest first (in case we want to use that information in our eviction test)
             keys = [keys sortedArrayUsingComparator:^NSComparisonResult(id key1, id key2) {
-                OSCacheEntry *entry1 = self->_cache[key1];
-                OSCacheEntry *entry2 = self->_cache[key2];
+                NLCacheEntry *entry1 = self->_cache[key1];
+                NLCacheEntry *entry2 = self->_cache[key2];
                 return (NSComparisonResult)MIN(1, MAX(-1, entry1.sequenceNumber - entry2.sequenceNumber));
             }];
         }
@@ -209,13 +209,13 @@
         //remove all items individually
         for (id key in keys)
         {
-            OSCacheEntry *entry = _cache[key];
-            if (!_delegateRespondsToShouldEvictObject || [_delegate cache:(OSCache *)self shouldEvictObject:entry.object])
+            NLCacheEntry *entry = _cache[key];
+            if (!_delegateRespondsToShouldEvictObject || [_delegate cache:(NLCache *)self shouldEvictObject:entry.object])
             {
                 if (_delegateRespondsToWillEvictObject)
                 {
                     _currentlyCleaning = YES;
-                    [_delegate cache:(OSCache *)self willEvictObject:entry.object];
+                    [_delegate cache:(NLCache *)self willEvictObject:entry.object];
                     _currentlyCleaning = NO;
                 }
                 [_cache removeObjectForKey:key];
@@ -235,13 +235,13 @@
 - (void)resequence
 {
     //sort, oldest first
-    NSArray *entries = [[_cache allValues] sortedArrayUsingComparator:^NSComparisonResult(OSCacheEntry *entry1, OSCacheEntry *entry2) {
+    NSArray *entries = [[_cache allValues] sortedArrayUsingComparator:^NSComparisonResult(NLCacheEntry *entry1, NLCacheEntry *entry2) {
         return (NSComparisonResult)MIN(1, MAX(-1, entry1.sequenceNumber - entry2.sequenceNumber));
     }];
     
     //renumber items
     NSInteger index = 0;
-    for (OSCacheEntry *entry in entries)
+    for (NLCacheEntry *entry in entries)
     {
         entry.sequenceNumber = index++;
     }
@@ -250,7 +250,7 @@
 - (id)objectForKey:(id)key
 {
     [_lock lock];
-    OSCacheEntry *entry = _cache[key];
+    NLCacheEntry *entry = _cache[key];
     entry.sequenceNumber = _sequenceNumber++;
     if (_sequenceNumber < 0)
     {
@@ -287,9 +287,9 @@
     [_lock lock];
     _totalCost -= [_cache[key] cost];
     _totalCost += g;
-    OSCacheEntry *entry = _cache[key];
+    NLCacheEntry *entry = _cache[key];
     if (!entry) {
-        entry = [[OSCacheEntry alloc] init];
+        entry = [[NLCacheEntry alloc] init];
         _cache[key] = entry;
     }
     entry.object = obj;
@@ -307,7 +307,7 @@
 {
     NSAssert(!_currentlyCleaning, @"It is not possible to modify cache from within the implementation of this delegate method.");
     [_lock lock];
-    OSCacheEntry *entry = _cache[key];
+    NLCacheEntry *entry = _cache[key];
     if (entry) {
         _totalCost -= entry.cost;
         entry.object = nil;
@@ -323,7 +323,7 @@
     [_lock lock];
     _totalCost = 0;
     _sequenceNumber = 0;
-    for (OSCacheEntry *entry in _cache.allValues)
+    for (NLCacheEntry *entry in _cache.allValues)
     {
         entry.object = nil;
         [_entryPool addObject:entry];
@@ -347,7 +347,7 @@
   if (block)
   {
       [_lock lock];
-      [_cache enumerateKeysAndObjectsUsingBlock:^(id key, OSCacheEntry *entry, BOOL *stop) {
+      [_cache enumerateKeysAndObjectsUsingBlock:^(id key, NLCacheEntry *entry, BOOL *stop) {
          block(key, entry.object, stop);
       }];
       [_lock unlock];
@@ -359,7 +359,7 @@
 - (BOOL)isKindOfClass:(Class)aClass
 {
     //pretend that we're an NSCache if anyone asks
-    if (aClass == [OSCache class] || aClass == [NSCache class])
+    if (aClass == [NLCache class] || aClass == [NSCache class])
     {
         return YES;
     }
@@ -392,11 +392,11 @@
 @end
 
 
-@implementation OSCache
+@implementation NLCache
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone
 {
-    return (OSCache *)[OSCache_Private allocWithZone:zone];
+    return (NLCache *)[NLCache_Private allocWithZone:zone];
 }
 
 - (id)objectForKeyedSubscript:(__unused id<NSCopying>)key { return nil; }

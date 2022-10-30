@@ -12,7 +12,7 @@
 #import "FLEXUtility.h"
 #import "FLEXResources.h"
 #import "NSUserDefaults+FLEX.h"
-#import "OSCache.h"
+#import "NLCache.h"
 
 #define Synchronized(queue, obj) ({ \
     __block id __synchronized_retval = nil; \
@@ -30,7 +30,7 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
 
 @interface FLEXNetworkRecorder ()
 
-@property (nonatomic) OSCache *restCache;
+@property (nonatomic) NLCache *restCache;
 @property (atomic) NSMutableArray<FLEXHTTPTransaction *> *orderedHTTPTransactions;
 @property (atomic) NSMutableArray<FLEXWebsocketTransaction *> *orderedWSTransactions;
 @property (atomic) NSMutableArray<FLEXFirebaseTransaction *> *orderedFirebaseTransactions;
@@ -44,7 +44,7 @@ NSString *const kFLEXNetworkRecorderResponseCacheLimitDefaultsKey = @"com.flex.r
 - (instancetype)init {
     self = [super init];
     if (self) {
-        self.restCache = [OSCache new];
+        self.restCache = [NLCache new];
         NSUInteger responseCacheLimit = [[NSUserDefaults.standardUserDefaults
             objectForKey:kFLEXNetworkRecorderResponseCacheLimitDefaultsKey] unsignedIntegerValue
         ];

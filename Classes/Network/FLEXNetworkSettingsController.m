@@ -107,12 +107,12 @@
 #pragma mark - Table View Data Source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     switch (section) {
-        case 0: return 5;
+        case 0: return 4;
         case 1: return self.hostDenylist.count;
         default: return 0;
     }
@@ -162,10 +162,6 @@
                     cell.accessoryView = self.jsonViewerSwitch;
                     break;
                 case 3:
-                    cell.textLabel.text = @"Reset Host Denylist";
-                    cell.textLabel.textColor = tableView.tintColor;
-                    break;
-                case 4:
                     cell.textLabel.text = self.cacheLimitCellTitle;
                     self.cacheLimitLabel = cell.textLabel;
                     [self.cacheLimitSlider removeFromSuperview];
@@ -212,8 +208,7 @@
 #pragma mark - Table View Delegate
 
 - (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)ip {
-    // Can only select the "Reset Host Denylist" row
-    return ip.section == 0 && ip.row == 2;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -235,7 +230,7 @@
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    return indexPath.section == 1;
+    return NO;
 }
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)style

@@ -91,6 +91,7 @@ typedef NS_ENUM(NSInteger, FLEXNetworkObserverMode) {
             target:self
             action:@selector(settingsButtonTapped:)
         ],
+        UIBarButtonItem.flex_flexibleSpace,
         [[UIBarButtonItem
           flex_systemItem:UIBarButtonSystemItemTrash
           target:self
@@ -318,7 +319,7 @@ typedef NS_ENUM(NSInteger, FLEXNetworkObserverMode) {
 #pragma mark - FLEXGlobalsEntry
 
 + (NSString *)globalsEntryTitle:(FLEXGlobalsRow)row {
-    return @"📡  Network History";
+    return @"Network";
 }
 
 + (FLEXGlobalsEntryRowAction)globalsEntryRowAction:(FLEXGlobalsRow)row {

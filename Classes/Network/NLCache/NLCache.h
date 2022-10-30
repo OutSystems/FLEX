@@ -1,5 +1,5 @@
 //
-//  OSCache.h
+//  NLCache.h - renamed from OSCache.h due to a naming conflict
 //
 //  Version 1.2.1
 //
@@ -34,7 +34,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface OSCache <KeyType, ObjectType> : NSCache <NSFastEnumeration>
+@interface NLCache <KeyType, ObjectType> : NSCache <NSFastEnumeration>
 
 @property (nonatomic, readonly) NSUInteger count;
 @property (nonatomic, readonly) NSUInteger totalCost;
@@ -46,11 +46,11 @@ NS_ASSUME_NONNULL_BEGIN
 @end
 
 
-@protocol OSCacheDelegate <NSCacheDelegate>
+@protocol NLCacheDelegate <NSCacheDelegate>
 @optional
 
-- (BOOL)cache:(OSCache *)cache shouldEvictObject:(id)entry;
-- (void)cache:(OSCache *)cache willEvictObject:(id)entry;
+- (BOOL)cache:(NLCache *)cache shouldEvictObject:(id)entry;
+- (void)cache:(NLCache *)cache willEvictObject:(id)entry;
 
 @end
 

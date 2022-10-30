@@ -13,7 +13,6 @@
 #import "FLEXTabList.h"
 #import "FLEXNavigationController.h"
 #import "FLEXHierarchyViewController.h"
-#import "FLEXGlobalsViewController.h"
 #import "FLEXObjectExplorerViewController.h"
 #import "FLEXObjectExplorerFactory.h"
 #import "FLEXNetworkMITMViewController.h"
@@ -102,7 +101,7 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
 
     CGRect safeArea = [self viewSafeArea];
     CGSize toolbarSize = [self.explorerToolbar sizeThatFits:CGSizeMake(
-        CGRectGetWidth(self.view.bounds), CGRectGetHeight(safeArea)
+        160, CGRectGetHeight(safeArea)
     )];
     [self updateToolbarPositionWithUnconstrainedFrame:CGRectMake(
         CGRectGetMinX(safeArea), toolbarOriginY, toolbarSize.width, toolbarSize.height
@@ -833,7 +832,7 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
 
         CGRect safeArea = [self viewSafeArea];
         CGSize toolbarSize = [self.explorerToolbar sizeThatFits:CGSizeMake(
-            CGRectGetWidth(self.view.bounds), CGRectGetHeight(safeArea)
+            160, CGRectGetHeight(safeArea)
         )];
         [self updateToolbarPositionWithUnconstrainedFrame:CGRectMake(
             CGRectGetMinX(self.explorerToolbar.frame),
@@ -1013,7 +1012,7 @@ typedef NS_ENUM(NSUInteger, FLEXExplorerMode) {
 
 - (void)toggleMenuTool {
     [self toggleToolWithViewControllerProvider:^UINavigationController *{
-        return [FLEXNavigationController withRootViewController:[FLEXGlobalsViewController new]];
+        return [FLEXNavigationController withRootViewController:[FLEXNetworkMITMViewController new]];
     } completion:nil];
 }
 
