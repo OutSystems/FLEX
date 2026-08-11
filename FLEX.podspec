@@ -29,7 +29,7 @@ Pod::Spec.new do |spec|
   spec.license          = { :type => "BSD", :file => "LICENSE" }
   spec.author           = { "Tanner Bennett" => "tannerbennett@me.com" }
   spec.social_media_url = "https://twitter.com/NSExceptional"
-  spec.platform         = :ios, "9.0"
+  spec.platform         = :ios, "16.0"
   spec.source           = { :git => "https://github.com/OutSystems/FLEX.git", :tag => "#{spec.version}" }
   spec.source_files     = "Classes/**/*.{h,c,m,mm}"
   spec.exclude_files    = "Classes/Headers/*.{h,c,m,mm}"
