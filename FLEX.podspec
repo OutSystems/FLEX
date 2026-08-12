@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name             = "FLEX"
-  spec.version          = "5.22.10+1.0.0"
+  spec.version          = "5.22.10+2.0.0"
   spec.summary          = "A set of in-app debugging and exploration tools for iOS"
   spec.description      = <<-DESC
                         - Inspect and modify views in the hierarchy.
@@ -29,7 +29,7 @@ Pod::Spec.new do |spec|
   spec.license          = { :type => "BSD", :file => "LICENSE" }
   spec.author           = { "Tanner Bennett" => "tannerbennett@me.com" }
   spec.social_media_url = "https://twitter.com/NSExceptional"
-  spec.platform         = :ios, "9.0"
+  spec.platform         = :ios, "16.0"
   spec.source           = { :git => "https://github.com/OutSystems/FLEX.git", :tag => "#{spec.version}" }
   spec.source_files     = "Classes/**/*.{h,c,m,mm}"
   spec.exclude_files    = "Classes/Headers/*.{h,c,m,mm}"
